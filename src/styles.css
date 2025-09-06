@@ -1,0 +1,29 @@
+:root {
+  color-scheme: light dark;
+  --bg: white;
+  --fg: #111;
+  --muted: #666;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --ok: #16a34a;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0b0f14; --fg: #e6e6e6; --muted: #9aa3ab; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+.container { max-width: 960px; margin: 0 auto; padding: 24px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+h1 { font-size: 1.5rem; margin: 0; }
+.card { background: color-mix(in oklab, var(--bg), #ffffff 4%); border: 1px solid color-mix(in oklab, var(--fg), transparent 85%); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+input, select, button { font: inherit; }
+input[type="password"], input[type="text"], input[type="number"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; background: transparent; color: inherit; }
+button { padding: 10px 14px; border-radius: 8px; border: 1px solid color-mix(in oklab, var(--fg), transparent 80%); background: color-mix(in oklab, var(--bg), #ffffff 6%); color: inherit; cursor: pointer; }
+button.primary { background: var(--primary); color: white; border: none; }
+.row { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 840px) { .row { grid-template-columns: 1fr 1fr; } }
+.badge { display: inline-block; padding: 4px 8px; border-radius: 999px; font-size: 12px; border: 1px solid color-mix(in oklab, var(--fg), transparent 80%); }
+.progress { height: 10px; background: #e5e7eb; border-radius: 8px; overflow: hidden; }
+.progress > div { height: 100%; transition: width .2s ease; }
+small.muted { color: var(--muted); }
+footer { margin-top: 24px; color: var(--muted); font-size: 14px; }
