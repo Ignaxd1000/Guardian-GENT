@@ -15,16 +15,16 @@ export default function BreachCheck({ password }) {
       const hash = await sha1Hex(password)
       const prefix = hash.slice(0, 5)
       const suffix = hash.slice(5)
-      const res = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`)
+      const res = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`) // Si le mando las primeros 5 caracteres del hash, me devuelve todos los hashes que coinciden, y con eso veo cuantas veces aparece la contra en pastes.
       if (!res.ok) throw new Error('Fallo al consultar HIBP')
       const text = await res.text()
       const lines = text.split('\n').map(l => l.trim())
-      const match = lines.find(line => line.split(':')[0] === suffix)
-      if (match) {
-        const count = parseInt(match.split(':')[1].trim(), 10)
+      const match = lines.find(line => line.split(':')[0] === suffix) // Le doy formato a cada linea y busco la que coincida con el sufijo del hash
+      if (match) { // Acà me fijo si el hash esta en lo que me devolvio la API
+        const count = parseInt(match.split(':')[1].trim(), 10) // 
         setResult({ compromised: true, count })
       } else {
-        setResult({ compromised: false, count: 0 })
+        setResult({ compromised: false, count: 0 }) 
       }
     } catch (e) {
       setError(e.message)
@@ -33,7 +33,7 @@ export default function BreachCheck({ password }) {
     }
   }
 
-  return (
+  return ( // La parte visual xd
     <div className="card">
       <h2>Verificar filtraciones (HIBP)</h2>
       <p><small className="muted">Privacidad: tu contraseña no se envía, solo un prefijo del hash SHA‑1 (k‑anonymity).</small></p>

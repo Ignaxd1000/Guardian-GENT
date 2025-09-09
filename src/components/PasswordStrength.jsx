@@ -10,7 +10,7 @@ function scorePassword(pw) {
   const hasDigit = /\d/.test(pw)
   const hasSymbol = /[^A-Za-z0-9]/.test(pw)
 
-  score += Math.min(10, length) // longitud ayuda
+  score += Math.min(10, length)
   score += (hasLower + hasUpper + hasDigit + hasSymbol) * 2
 
   if (length < 8) tips.push('Usá 12+ caracteres.')
@@ -18,7 +18,7 @@ function scorePassword(pw) {
   if (!hasDigit) tips.push('Agregá números.')
   if (!hasSymbol) tips.push('Agregá símbolos.')
 
-  const max = 10 + 8 // tope simple 18
+  const max = 10 + 8
   const pct = Math.min(100, Math.round((score / max) * 100))
   let label = 'Muy débil', color = '#dc2626'
   if (pct >= 25) { label = 'Débil'; color = '#f97316' }

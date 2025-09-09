@@ -15,7 +15,7 @@ export default function Generator({ onGenerate }) {
     setLast(pw)
     onGenerate?.(pw)
   }
-
+                                    // En este archivo no hay mucho para comentar
   async function copy() {
     if (!last) return
     await navigator.clipboard.writeText(last)

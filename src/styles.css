@@ -1,4 +1,4 @@
-:root {
+:root[data-theme="light"] {
   color-scheme: light dark;
   --bg: white;
   --fg: #111;
@@ -7,8 +7,15 @@
   --danger: #dc2626;
   --ok: #16a34a;
 }
-@media (prefers-color-scheme: dark) {
-  :root { --bg: #0b0f14; --fg: #e6e6e6; --muted: #9aa3ab; }
+                          /* Esta plantilla la saque de por ahi y la adapte, lo unico que hice fue esto del root para el modo oscuro*/
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0f14;
+  --fg: #e6e6e6;
+  --muted: #9aa3ab;
+  --primary: #3b82f6;
+  --danger: #f87171;
+  --ok: #22c55e;
 }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
