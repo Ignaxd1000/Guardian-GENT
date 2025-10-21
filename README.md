@@ -28,7 +28,7 @@ Guardian-GENT es una aplicación web educativa para evaluar y mejorar la segurid
 ```
 src/
   App.jsx
-  main.jsxInitialize README with project details and guidelines
+  main.jsx
   styles.css
   components/
     Generator.jsx
